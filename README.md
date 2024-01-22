@@ -1,0 +1,1 @@
+# Repositório para teste de tratamento de erros
