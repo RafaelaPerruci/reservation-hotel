@@ -1,5 +1,7 @@
 package br.com.model.entities;
 
+import br.com.model.exception.DomainException;
+
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -39,11 +41,21 @@ public class ReservationHotel {
         return checkOut;
     }
     public void updateDates(LocalDate checkin, LocalDate checkout){
+
+        LocalDate d = LocalDate.now();
+
+        if (checkin.isBefore(d) || checkout.isBefore(d)) {
+            throw new DomainException("Reservation dates for update must be future dates");
+        }
+        if (checkout.isBefore(checkin)) {
+            throw new DomainException("Check-out date must be after check-in date");
+        }
+
         this.checkIn = checkin;
         this.checkOut = checkout;
     }
     public long duration() {
-        return Duration.between(checkIn.atStartOfDay(), checkOut.atStartOfDay()).toDays();
+        return ChronoUnit.DAYS.between(checkIn, checkOut);
     }
 
     @Override
