@@ -48,6 +48,9 @@ public class Main {
         catch (RuntimeException e) {
             System.out.println("Unexpected error");
         }
-
+        /*
+        * Já existe uma exceção pronta no java para esta validação, que é a IllegalArgumentException e,
+        * porém a intenção deste cósigo é aprender a personalizar uma exceção própria
+        * */
     }
 }
