@@ -2,9 +2,7 @@ package br.com.model.entities;
 
 import br.com.model.exception.DomainException;
 
-import java.time.Duration;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
