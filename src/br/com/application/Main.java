@@ -1,3 +1,5 @@
+package br.com.application;
+
 import java.util.Scanner;
 
 public class Main {
