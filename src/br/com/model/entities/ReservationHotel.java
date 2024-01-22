@@ -15,6 +15,9 @@ public class ReservationHotel {
     public static DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public ReservationHotel(Integer roomNumber, LocalDate checkIn, LocalDate checkOut) {
+        if (checkOut.isBefore(checkIn)) {
+            throw new DomainException("Check-out date must be after check-in date");
+        }
         this.roomNumber = roomNumber;
         this.checkIn = checkIn;
         this.checkOut = checkOut;

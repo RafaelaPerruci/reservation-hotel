@@ -2,7 +2,6 @@ package br.com.application;
 
 import br.com.model.entities.ReservationHotel;
 import br.com.model.exception.DomainException;
-
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -20,6 +19,11 @@ public class Main {
             LocalDate checkIn = LocalDate.parse(sc.next(), fmt);
             System.out.print("Check-out date (dd/MM/yyyy): ");
             LocalDate checkOut = LocalDate.parse(sc.next(), fmt);
+            /*
+             * Ou posso apagar a instanciação do construtor padrão e instanciar um construtor com argumentos:
+             * ReservationHotel reservation = new ReservationHotel(number, checkIn, checkOut);
+             * pois a lógica de validação da data também está no construtor
+             * */
             reservation.updateDates(checkIn, checkOut);
             System.out.println("Reservation: " + reservation);
             System.out.println();
